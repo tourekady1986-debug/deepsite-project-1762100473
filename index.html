@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Rêve des Tout-Petits - Boutique de jouets vintage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles */
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .product-image {
+            height: 200px;
+            object-fit: contain;
+            background-color: #f9f9f9;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1594787319141-63b4afc5c055?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .category-btn.active {
+            background-color: #FF6B6B;
+            color: white;
+            border-color: #FF6B6B;
+        }
+        .logo-text {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #FF6B6B;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background-color: #FF6B6B;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #FF5252;
+            transform: scale(1.05);
+        }
+        .star-rating {
+            color: #FFD700;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-moon-star text-2xl" style="color: #FF6B6B;"></i>
+                <h1 class="text-xl font-bold logo-text">Le Rêve des Tout-Petits</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="text-gray-800 hover:text-pink-500 font-medium">Accueil</a>
+                <a href="#products" class="text-gray-800 hover:text-pink-500 font-medium">Boutique</a>
+                <a href="#about" class="text-gray-800 hover:text-pink-500 font-medium">Notre histoire</a>
+                <a href="#contact" class="text-gray-800 hover:text-pink-500 font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button class="relative">
+                    <i class="fas fa-shopping-cart text-gray-700 text-xl hover:text-pink-500"></i>
+                    <span class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </button>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-gray-700 text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Redécouvrez la magie de l'enfance</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Des jouets vintage qui ont bercé les rêves des générations passées</p>
+            <a href="#products" class="btn-primary text-white font-bold py-3 px-6 rounded-full inline-block">Explorer la boutique</a>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-10 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8">Nos univers enchantés</h2>
+            <div class="flex flex-wrap justify-center gap-3">
+                <button class="category-btn active px-4 py-2 rounded-full border border-gray-300 hover:bg-pink-500 hover:text-white transition duration-300" data-category="all">Tous les rêves</button>
+                <button class="category-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-pink-500 hover:text-white transition duration-300" data-category="poupées">Poupées magiques</button>
+                <button class="category-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-pink-500 hover:text-white transition duration-300" data-category="voitures">Petites voitures</button>
+                <button class="category-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-pink-500 hover:text-white transition duration-300" data-category="jeux">Jeux de rêve</button>
+                <button class="category-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-pink-500 hover:text-white transition duration-300" data-category="peluches">Doudous câlins</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8">Nos trésors d'antan</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="products-container">
+                <!-- Products will be added here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1608889825103-eb5a4a9a92f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="À propos" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-4">Notre histoire enchantée</h2>
+                    <p class="text-gray-700 mb-4">"Le Rêve des Tout-Petits" est né de la passion d'une maman pour les jouets qui ont marqué l'enfance de plusieurs générations.</p>
+                    <p class="text-gray-700 mb-6">Nous chérissons chaque jouet comme un petit trésor capable de faire briller les yeux des enfants... et de ceux qui l'ont été !</p>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="bg-pink-100 p-4 rounded-full">
+                            <i class="fas fa-heart text-pink-500 text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700">Sélectionnés avec amour</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-pink-100 p-4 rounded-full">
+                            <i class="fas fa-star text-pink-500 text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700">100% authentiques</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12">Ils ont rêvé avec nous</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Marie D.</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"J'ai offert la poupée de mon enfance à ma fille. La voir aussi heureuse que je l'étais, c'est un vrai bonheur !"</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Pierre L.</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Le service est magique et les jouets sont dans un état exceptionnel. Je recommande les yeux fermés !"</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Sophie M.</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Mon petit garçon adore la voiture vintage que j'ai achetée ici. Elle est solide comme autrefois !"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12">Écrivez-nous un petit mot</h2>
+            <div class="max-w-2xl mx-auto">
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Votre prénom</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Votre email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-gray-700 mb-2">Sujet</label>
+                        <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 mb-2">Votre message</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary text-white font-bold py-3 px-6 rounded-md w-full">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 logo-text">Le Rêve des Tout-Petits</h3>
+                    <p class="text-gray-400">Faites revivre les souvenirs et créez de nouveaux rêves depuis 2010.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Explorer</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-300">Accueil</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-pink-300">Boutique</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-pink-300">Notre histoire</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-pink-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Informations</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-300">Livraison</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-300">Paiement sécurisé</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-300">Retours</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-300">CGV</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Suivez le rêve</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-pink-300 text-xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-pink-300 text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-pink-300 text-xl"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-400">Abonnez-vous à notre conte de fées</p>
+                        <div class="flex mt-2">
+                            <input type="email" placeholder="Votre email" class="px-4 py-2 rounded-l-md text-gray-800 w-full">
+                            <button class="bg-pink-500 hover:bg-pink-600 px-4 rounded-r-md"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Le Rêve des Tout-Petits. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample product data - you would replace this with your actual products
+        const products = [
+            {
+                id: 1,
+                name: "Poupée Barbie Ann
+</body>
+</html>
